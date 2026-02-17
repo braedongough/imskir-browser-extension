@@ -1,7 +1,7 @@
 {
   "name": "imskir-browser-extension",
   "displayName": "Imskir: Search Scryfall with Natural Language",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Search scryfall using natural language",
   "author": "braedongough@gmail.com",
   "scripts": {
