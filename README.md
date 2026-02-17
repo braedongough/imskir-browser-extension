@@ -1,3 +1,5 @@
+![Imskir](assets/banner.png)
+
 # Imskir - Natural Language Search for Scryfall
 
 Imskir is a browser extension that lets you search [Scryfall](https://scryfall.com) using plain English instead of its complex query syntax. Type something like **"big red and green creatures with flying"** and the extension translates it into Scryfall's syntax (e.g. `c:rg t:creature pow>=4 o:flying`) before submitting.
