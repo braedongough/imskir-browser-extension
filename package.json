@@ -1,6 +1,6 @@
 {
   "name": "imskir-browser-extension",
-  "displayName": "Imskir browser extension",
+  "displayName": "Imskir: Search Scryfall with Natural Language",
   "version": "0.0.1",
   "description": "Search scryfall using natural language",
   "author": "braedongough@gmail.com",
@@ -29,10 +29,7 @@
     "typescript": "5.3.3"
   },
   "manifest": {
-    "host_permissions": [
-      "https://scryfall.com/*"
-    ],
-    "permissions": [
+"permissions": [
       "storage"
     ]
   }
