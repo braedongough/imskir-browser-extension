@@ -10,9 +10,14 @@
     "package": "plasmo package"
   },
   "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.44",
+    "@ai-sdk/google": "^3.0.29",
+    "@ai-sdk/openai": "^3.0.29",
+    "ai": "^6.0.86",
     "plasmo": "0.90.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "4.1.1",
@@ -25,7 +30,10 @@
   },
   "manifest": {
     "host_permissions": [
-      "https://*/*"
+      "https://scryfall.com/*"
+    ],
+    "permissions": [
+      "storage"
     ]
   }
 }
