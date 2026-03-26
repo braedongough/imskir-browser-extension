@@ -99,7 +99,10 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   }
 
   translateQuery(message.query)
-    .then((translatedQuery) => sendResponse({ translatedQuery }))
+    .then(async (translatedQuery) => {
+      await saveHistoryEntry(message.query, translatedQuery)
+      sendResponse({ translatedQuery })
+    })
     .catch((error) => {
       console.error("[Imskir] Translation error:", error)
       sendResponse({ translatedQuery: null, error: error.message })
@@ -107,6 +110,24 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
 
   return true
 })
+
+async function saveHistoryEntry(query: string, translatedQuery: string) {
+  const result = await chrome.storage.local.get("searchHistory")
+  const history: Array<{ id: string; query: string; translatedQuery: string; timestamp: number }> = result.searchHistory || []
+
+  history.unshift({
+    id: crypto.randomUUID(),
+    query,
+    translatedQuery,
+    timestamp: Date.now()
+  })
+
+  if (history.length > 50) {
+    history.length = 50
+  }
+
+  await chrome.storage.local.set({ searchHistory: history })
+}
 
 async function translateQuery(query: string): Promise<string> {
   const config = await getSettings()
